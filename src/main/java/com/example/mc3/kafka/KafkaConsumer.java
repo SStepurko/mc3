@@ -1,13 +1,15 @@
 package com.example.mc3.kafka;
 
 import org.springframework.kafka.annotation.KafkaListener;
-import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 
-@Component
+@Service
 public class KafkaConsumer {
 
-	@KafkaListener(topics = "MyTopic", groupId = "group_id")
-	public void consume(String message) {
-		System.out.println(message);
+	@KafkaListener(topics = "MyTopic", groupId = "group_id", containerFactory = "messageListener")
+//	public void consume(String mcMessage){
+	public void consume(Message message) {
+		Message mc3Message = MessageService.updateMessage(message);
+		System.out.println(mc3Message);
 	}
 }
