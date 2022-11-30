@@ -1,5 +1,6 @@
 package com.example.mc3.kafka;
 
+import com.example.mc3.post.SendPost;
 import org.springframework.kafka.annotation.KafkaListener;
 import org.springframework.stereotype.Service;
 
@@ -11,5 +12,9 @@ public class KafkaConsumer {
 	public void consume(Message message) {
 		Message mc3Message = MessageService.updateMessage(message);
 		System.out.println(mc3Message);
+//		send POST
+		SendPost.sendMessage(message);
+
+
 	}
 }
