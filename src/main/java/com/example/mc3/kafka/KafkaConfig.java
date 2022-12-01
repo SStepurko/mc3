@@ -24,13 +24,11 @@ public class KafkaConfig {
 		config.put(ConsumerConfig.KEY_DESERIALIZER_CLASS_CONFIG, StringDeserializer.class);
 		config.put(ConsumerConfig.VALUE_DESERIALIZER_CLASS_CONFIG, JsonDeserializer.class);
 		config.put(JsonDeserializer.TYPE_MAPPINGS, "msg:com.example.mc3.kafka.Message");
-//		config.put(JsonDeserializer.VALUE_CLASS_NAME_CONFIG, McMessage.class);
 		config.put(JsonDeserializer.TRUSTED_PACKAGES, "*");
 		return new DefaultKafkaConsumerFactory<>(
 				config,
 				new StringDeserializer(),
 				new JsonDeserializer<>(Message.class));
-//		return new DefaultKafkaConsumerFactory<>(config);
 	}
 
 	@Bean
@@ -39,10 +37,4 @@ public class KafkaConfig {
 		factory.setConsumerFactory(consumerFactory());
 		return factory;
 	}
-//	@Bean
-//	public KafkaListenerContainerFactory<ConcurrentMessageListenerContainer<String, McMessage>> factory(ConsumerFactory<String, McMessage> consumerFactory) {
-//		ConcurrentKafkaListenerContainerFactory<String, McMessage> factory = new ConcurrentKafkaListenerContainerFactory<>();
-//		factory.setConsumerFactory(consumerFactory);
-//		return factory;
-//	}
 }
