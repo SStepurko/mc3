@@ -17,7 +17,7 @@ import java.util.Map;
 /**
  * Configuration class for kafka consumer
  */
-@EnableKafka
+// @EnableKafka
 @Configuration
 public class KafkaConfig {
 
