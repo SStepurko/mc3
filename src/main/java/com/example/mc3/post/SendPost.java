@@ -7,6 +7,9 @@ import org.springframework.http.HttpMethod;
 import org.springframework.stereotype.Component;
 import org.springframework.web.client.RestTemplate;
 
+/**
+ * RestTemplate sends POST with the message to mc1
+ */
 @Component
 public class SendPost {
 
