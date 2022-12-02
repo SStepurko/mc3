@@ -13,6 +13,6 @@ public class KafkaConsumer {
 	@KafkaListener(topics = "MyTopic", groupId = "group_id", containerFactory = "messageListener")
 	public void consume(Message message) {
 		Message mc3Message = MessageService.updateMessage(message);
-		SendPost.sendMessage(message);
+		SendPost.sendMessage(mc3Message);
 	}
 }
